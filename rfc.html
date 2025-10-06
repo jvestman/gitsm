@@ -71,9 +71,39 @@
                 </div>
             </fieldset>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Clone the document
+        const docClone = document.documentElement.cloneNode(true);
+
+        // Update form fields in the clone with current values
+        const origFields = document.querySelectorAll('input, textarea, select');
+        const cloneFields = docClone.querySelectorAll('input, textarea, select');
+        origFields.forEach((field, i) => {
+            if (field.type === 'checkbox' || field.type === 'radio') {
+                cloneFields[i].checked = field.checked;
+            } else {
+                cloneFields[i].value = field.value;
+            }
+        });
+
+        // Serialize the clone to HTML
+        const html = '<!DOCTYPE html>\n' + docClone.outerHTML;
+
+        // Download as file
+        const blob = new Blob([html], {type: 'text/html'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'rfc.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+    });
 </body>
 </html>
