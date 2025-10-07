@@ -89,7 +89,7 @@
                 if (field.type === 'checkbox' || field.type === 'radio') {
                     cloneFields[i].checked = field.checked;
                 } else if (field.tagName.toLowerCase() === 'textarea') {
-                    cloneFields[i].setAttribute('textContent', field.value);
+                    cloneFields[i].innerHtml = field.value;
                 } else {
                     cloneFields[i].setAttribute('value', field.value);
                 }
