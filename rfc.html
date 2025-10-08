@@ -184,9 +184,9 @@
                 if (e.target && e.target.id === id) updateRfcIdTitle();
             });
         });
-        
+
         document.getElementById('downloadIcal').addEventListener('click', function() {
-            function pad(n) { return n < 10 ? '0' + n : n; }
+            function pad(n) { return n < 10 ? '0' + n : String(n); }
             function toICalDateTime(dt) {
                 if (!dt) return '';
                 const d = new Date(dt);
@@ -207,12 +207,12 @@
             let ical = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
-                'PRODID:-//vibe-itsm//rfc//EN',
+                'PRODID:-//gitsm//rfc//EN',
                 'BEGIN:VEVENT',
                 `UID:${rfcId || (Date.now() + '@gitsm')}`,
                 dtStart ? `DTSTART:${dtStart}` : '',
                 dtEnd ? `DTEND:${dtEnd}` : '',
-                `SUMMARY:${rfcId}: ${name ? ' - ' + name : ''}`,
+                `SUMMARY:${rfcId}${name ? ' - ' + name : ''}`,
                 `DESCRIPTION:${desc}`,
                 'END:VEVENT',
                 'END:VCALENDAR'
