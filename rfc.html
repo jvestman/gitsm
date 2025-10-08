@@ -15,6 +15,24 @@
             <!-- General Field Group -->
             <fieldset class="mb-4">
                 <legend>General</legend>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="orgId" class="form-label">Organization ID</label>
+                        <input type="text" class="form-control" id="orgId" name="orgId" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="ticketType" class="form-label">Ticket Type</label>
+                        <input type="text" class="form-control" id="ticketType" name="ticketType" value="CHG" readonly>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="changeDate" class="form-label">Date (YYYYMMDD)</label>
+                        <input type="text" class="form-control" id="changeDate" name="changeDate" pattern="\d{8}" placeholder="YYYYMMDD" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="uniqueSuffix" class="form-label">Unique Suffix</label>
+                        <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required>
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="generalName" class="form-label">Name</label>
                     <input type="text" class="form-control" id="generalName" name="generalName">
@@ -80,39 +98,39 @@
             e.preventDefault();
 
             const form = document.getElementById("form");
-      const inputs = form.querySelectorAll("input, textarea, select");
+            const inputs = form.querySelectorAll("input, textarea, select");
 
-      // Set input values as default values
-      inputs.forEach(input => {
-        if (input.tagName === "TEXTAREA") {
-          input.innerHTML = input.value;
-        } else if (input.tagName === "SELECT") {
-          // Set the selected option as default
-          Array.from(input.options).forEach(option => {
-            if (option.selected) {
-              option.setAttribute("selected", "selected");
-            } else {
-              option.removeAttribute("selected");
-            }
-          });
-        } else {
-          input.setAttribute("value", input.value);
-        }
-      });
+            // Set input values as default values
+            inputs.forEach(input => {
+                if (input.tagName === "TEXTAREA") {
+                input.innerHTML = input.value;
+                } else if (input.tagName === "SELECT") {
+                // Set the selected option as default
+                Array.from(input.options).forEach(option => {
+                    if (option.selected) {
+                    option.setAttribute("selected", "selected");
+                    } else {
+                    option.removeAttribute("selected");
+                    }
+                });
+                } else {
+                input.setAttribute("value", input.value);
+                }
+            });
 
-      // Get the full HTML
-      const html = document.documentElement.outerHTML;
+            // Get the full HTML
+            const html = document.documentElement.outerHTML;
 
-      // Create blob and download
-      const blob = new Blob([html], {type: "text/html"});
-      const url = URL.createObjectURL(blob);
+            // Create blob and download
+            const blob = new Blob([html], {type: "text/html"});
+            const url = URL.createObjectURL(blob);
 
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "saved_page.html";
-      a.click();
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "saved_page.html";
+            a.click();
 
-      URL.revokeObjectURL(url);
+            URL.revokeObjectURL(url);
         });
     </script>
 </body>
