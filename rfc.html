@@ -15,7 +15,7 @@
             <!-- General Field Group -->
             <fieldset class="mb-4">
                 <legend>General</legend>
-                <div class="row mb-3">
+                <div class="row mb-3" id="rfcIdGroup">
                     <div class="col-md-3">
                         <label for="orgId" class="form-label">Organization ID</label>
                         <input type="text" class="form-control" id="orgId" name="orgId" required>
@@ -33,6 +33,7 @@
                         <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required>
                     </div>
                 </div>
+                
                 <div class="mb-3">
                     <label for="generalName" class="form-label">Name</label>
                     <input type="text" class="form-control" id="generalName" name="generalName">
@@ -150,6 +151,29 @@
             a.click();
 
             URL.revokeObjectURL(url);
+        });
+    
+        function updateRfcIdTitle() {
+            const orgId = document.getElementById('orgId').value.trim();
+            const ticketType = document.getElementById('ticketType').value.trim();
+            const changeDate = document.getElementById('changeDate').value.trim();
+            const uniqueSuffix = document.getElementById('uniqueSuffix').value.trim();
+            const parts = [orgId, ticketType, changeDate, uniqueSuffix].filter(Boolean);
+            const rfcId = parts.join('-');
+            if (rfcId) {
+                document.title = rfcId;
+                const h1 = document.querySelector('h1');
+                if (h1) h1.textContent = rfcId;
+            } else {
+                document.title = "Request for Change";
+                const h1 = document.querySelector('h1');
+                if (h1) h1.textContent = "Request for Change";
+            }
+        }
+        ['orgId', 'ticketType', 'changeDate', 'uniqueSuffix'].forEach(id => {
+            document.addEventListener('input', function(e) {
+                if (e.target && e.target.id === id) updateRfcIdTitle();
+            });
         });
     </script>
 </body>
