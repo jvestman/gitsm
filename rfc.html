@@ -80,12 +80,21 @@
             e.preventDefault();
 
             const form = document.getElementById("form");
-      const inputs = form.querySelectorAll("input, textarea");
+      const inputs = form.querySelectorAll("input, textarea, select");
 
       // Set input values as default values
       inputs.forEach(input => {
         if (input.tagName === "TEXTAREA") {
           input.innerHTML = input.value;
+        } else if (input.tagName === "SELECT") {
+          // Set the selected option as default
+          Array.from(input.options).forEach(option => {
+            if (option.selected) {
+              option.setAttribute("selected", "selected");
+            } else {
+              option.removeAttribute("selected");
+            }
+          });
         } else {
           input.setAttribute("value", input.value);
         }
