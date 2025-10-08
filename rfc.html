@@ -41,6 +41,25 @@
                     <label for="generalDesc" class="form-label">Description</label>
                     <textarea class="form-control" id="generalDesc" name="generalDesc" rows="2"></textarea>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label d-block">Status</label>
+                    <div class="btn-group" role="group" aria-label="Status">
+                        <input type="radio" class="btn-check" name="status" id="statusDraft" value="Draft" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="statusDraft">Draft</label>
+
+                        <input type="radio" class="btn-check" name="status" id="statusSubmitted" value="Submitted" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="statusSubmitted">Submitted</label>
+
+                        <input type="radio" class="btn-check" name="status" id="statusApproved" value="Approved" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="statusApproved">Approved</label>
+
+                        <input type="radio" class="btn-check" name="status" id="statusImplemented" value="Implemented" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="statusImplemented">Implemented</label>
+
+                        <input type="radio" class="btn-check" name="status" id="statusClosed" value="Closed" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="statusClosed">Closed</label>
+                    </div>
+                </div>
             </fieldset>
 
             <!-- Classification Field Group -->
