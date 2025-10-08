@@ -114,6 +114,16 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
+
+        function getRfcId() {
+                const orgId = document.getElementById('orgId').value.trim();
+                const ticketType = document.getElementById('ticketType').value.trim();
+                const changeDate = document.getElementById('changeDate').value.trim();
+                const uniqueSuffix = document.getElementById('uniqueSuffix').value.trim();
+                const parts = [orgId, ticketType, changeDate, uniqueSuffix].filter(Boolean);
+                return parts.join('-');
+            }
+
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -147,19 +157,16 @@
 
             const a = document.createElement("a");
             a.href = url;
-            a.download = "saved_page.html";
+            a.download = getRfcId() ? getRfcId() + ".html" : "rfc.html";
             a.click();
 
             URL.revokeObjectURL(url);
         });
     
         function updateRfcIdTitle() {
-            const orgId = document.getElementById('orgId').value.trim();
-            const ticketType = document.getElementById('ticketType').value.trim();
-            const changeDate = document.getElementById('changeDate').value.trim();
-            const uniqueSuffix = document.getElementById('uniqueSuffix').value.trim();
-            const parts = [orgId, ticketType, changeDate, uniqueSuffix].filter(Boolean);
-            const rfcId = parts.join('-');
+            const rfcId = getRfcId();
+
+            
             if (rfcId) {
                 document.title = rfcId;
                 const h1 = document.querySelector('h1');
