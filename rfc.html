@@ -11,7 +11,7 @@
         <h1 class="mb-4">Request for Change</h1>
         <p>Request for change form for <a href="https://en.wikipedia.org/wiki/Change_management_(ITSM)">IT change management</a></p>
 
-        <form>
+        <form id="form">
             <!-- General Field Group -->
             <fieldset class="mb-4">
                 <legend>General</legend>
@@ -79,34 +79,31 @@
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Clone the document
-            const docClone = document.documentElement.cloneNode(true);
+            const form = document.getElementById("form");
+      const inputs = form.querySelectorAll("input, textarea");
 
-            // Update form fields in the clone with current values
-            const origFields = document.querySelectorAll('input, textarea, select');
-            const cloneFields = docClone.querySelectorAll('input, textarea, select');
-            origFields.forEach((field, i) => {
-                if (field.type === 'checkbox' || field.type === 'radio') {
-                    cloneFields[i].checked = field.checked;
-                } else if (field.tagName.toLowerCase() === 'textarea') {
-                    cloneFields[i].setAttribute('innerHTML',field.value);
-                } else {
-                    cloneFields[i].setAttribute('value', field.value);
-                }
-            });
+      // Set input values as default values
+      inputs.forEach(input => {
+        if (input.tagName === "TEXTAREA") {
+          input.innerHTML = input.value;
+        } else {
+          input.setAttribute("value", input.value);
+        }
+      });
 
-            // Serialize the clone to HTML
-            const html = '<!DOCTYPE html>\n' + docClone.outerHTML;
+      // Get the full HTML
+      const html = document.documentElement.outerHTML;
 
-            // Download as file
-            const blob = new Blob([html], {type: 'text/html'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'rfc.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(a.href);
+      // Create blob and download
+      const blob = new Blob([html], {type: "text/html"});
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "saved_page.html";
+      a.click();
+
+      URL.revokeObjectURL(url);
         });
     </script>
 </body>
