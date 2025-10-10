@@ -1,22 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vibe ITSM</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WitSM – Witty IT Service Management</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #222;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 1rem auto 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 0;
+    }
+
+    h2 {
+      color: #004080;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul, ol {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+
+    a {
+      color: #005bbb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .tool-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tool-list li {
+      margin-bottom: 1rem;
+    }
+
+    .tool-list li strong {
+      display: block;
+      font-size: 1.05em;
+      margin-bottom: 0.2rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Welcome to GitSM</h1>
-        <p class="text-center"></p>
-    </div>
-    <div>
-        <div class="container mt-5 text-center">
-            <a href="rfc.html" class="btn btn-primary">Go to Request for Change Form</a>
-        </div>
 
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<header>
+  <h1>WitSM</h1>
+  <p>
+    WitSM is a collection of smart, stateless tools for IT Service Management — designed for teams that operate without a shared ITSM platform.
+    Each tool runs entirely in your browser, allowing you to prepare, share, and review structured service management records without logins,
+    servers, or integrations.
+  </p>
+</header>
+
+<main>
+  <!-- Column 1: Benefits -->
+  <section>
+    <h2>Benefits</h2>
+    <ul>
+      <li>No backend or shared platform required</li>
+      <li>Portable, offline-ready, client-side forms</li>
+      <li>Save filled forms as HTML files or generate shareable links</li>
+      <li>Send structured RFCs and notifications via email/chat</li>
+      <li>Generate <code>.eml</code> and <code>.ics</code> for email/calendar</li>
+      <li>Ideal for vendor collaboration and air-gapped environments</li>
+      <li>Lightweight process enablement for small or distributed teams</li>
+      <li>Maintain auditability and traceability with no overhead</li>
+    </ul>
+  </section>
+
+  <!-- Column 2: How It Works -->
+  <section>
+    <h2>How It Works</h2>
+    <ol>
+      <li>Open a WitSM tool in your browser</li>
+      <li>Fill out the form with structured data</li>
+      <li>Save it locally, or share via link or download</li>
+      <li>Send via email, chat, or calendar invite</li>
+      <li>Others can open and collaborate — no server needed</li>
+    </ol>
+  </section>
+
+  <!-- Column 3: Tools -->
+  <section>
+    <h2>Tools</h2>
+    <ul class="tool-list">
+      <li>
+        <strong><a href="rfc.html">🧾 Request for Change (RFC)</a></strong>
+        Propose and coordinate infrastructure or service changes.
+      </li>
+      <li>
+        <strong><a href="incident.html">⚠️ Incident Report</a></strong>
+        Document unplanned disruptions and their resolution.
+      </li>
+      <li>
+        <strong><a href="service-request.html">📬 Service Request</a></strong>
+        Handle requests for access, support, or provisioning.
+      </li>
+      <li>
+        <strong><a href="maintenance.html">🗓️ Maintenance Notification</a></strong>
+        Schedule and communicate planned service interruptions.
+      </li>
+      <li>
+        <strong><a href="changelog.html">📒 Change Log Entry</a></strong>
+        Track operational or administrative changes.
+      </li>
+      <li>
+        <strong><a href="problem.html">✅ Problem Record</a></strong>
+        Investigate recurring issues and capture workarounds.
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 WitSM — Stateless tools for real-world IT management. | <a href="mailto:witsm@example.com">Contact us</a></p>
+</footer>
+
 </body>
 </html>
