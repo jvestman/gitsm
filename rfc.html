@@ -75,14 +75,29 @@
             <fieldset class="mb-4">
                 <legend>Classification</legend>
                 <div class="mb-3">
-                    <label for="classificationType" class="form-label">Type</label>
-                    <select class="form-select" id="classificationType" name="classificationType">
-                        <option value="">Select type</option>
-                        <option value="standard">Standard</option>
-                        <option value="urgent">Urgent</option>
-                        <option value="emergency">Emergency</option>
-                    </select>
-                </div>
+  <label class="form-label">Change management procedure</label>
+  <div class="btn-group-vertical w-100" role="group" aria-label="Change Procedure options">
+    
+    <input type="radio" class="btn-check" name="changeProcedure" id="changeNormal" autocomplete="off" value="normal">
+    <label class="btn btn-outline-primary text-start" for="changeNormal">
+      <strong>Normal</strong><br>
+      <small class="text-muted">Goes through full CAB approval process; used for most planned, non-routine changes.</small>
+    </label>
+
+    <input type="radio" class="btn-check" name="changeProcedure" id="changeStandard" autocomplete="off" value="standard">
+    <label class="btn btn-outline-primary text-start" for="changeStandard">
+      <strong>Standard</strong><br>
+      <small class="text-muted">Pre-approved, low-risk, and repeatable change with a well-defined release and deployment process.</small>
+    </label>
+
+    <input type="radio" class="btn-check" name="changeProcedure" id="changeEmergency" autocomplete="off" value="emergency">
+    <label class="btn btn-outline-primary text-start" for="changeEmergency">
+      <strong>Emergency</strong><br>
+      <small class="text-muted">Urgent change to fix a major incident or prevent serious disruption to service. </small>
+    </label>
+
+  </div>
+</div>
 
                 
 
