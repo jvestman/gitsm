@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Request for Change</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container mt-5">
-        
+
         <h1 class="mb-4">Request for Change</h1>
         <div class="alert alert-info alert-dismissible fade show rfc-panel" role="alert">
             <h4 class="alert-heading">About this form</h4>
-            <p>This form helps you log IT changes quickly and clearly. Just fill in the details so everyone involved knows what’s happening and why — making the whole process smoother and less risky. Learn more about <a href="https://en.wikipedia.org/wiki/Change_management_(ITSM)" target="_blank" rel="noopener noreferrer">IT change management</a>.</p>
-            <p><small><em>Note:</em> All the information you enter is stored only in your browser. To keep a record or share it, make sure to save the form locally or email the saved file to the next person involved. The data isn’t sent anywhere automatically.</small></p>
+            <p>This form helps you log IT changes quickly and clearly. Just fill in the details so everyone involved
+                knows what’s happening and why — making the whole process smoother and less risky. Learn more about <a
+                    href="https://en.wikipedia.org/wiki/Change_management_(ITSM)" target="_blank"
+                    rel="noopener noreferrer">IT change management</a>.</p>
+            <p><small><em>Note:</em> All the information you enter is stored only in your browser. To keep a record or
+                    share it, make sure to save the form locally or email the saved file to the next person involved.
+                    The data isn’t sent anywhere automatically.</small></p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
@@ -29,13 +36,15 @@
 
 
         <form id="form">
-            <!-- General Field Group -->
             <fieldset class="mb-4">
                 <legend>Reference information</legend>
                 <div class="row mb-3" id="rfcIdGroup">
                     <div class="col-md-3">
                         <label for="orgId" class="form-label">Organization ID</label>
-                        <input type="text" class="form-control" id="orgId" name="orgId" required placeholder="e.g. ACME or dept-code — organization identifier" data-bs-toggle="tooltip" data-bs-placement="top" title="Short organization identifier used in the RFC ID (e.g. ACME or dept-code).">
+                        <input type="text" class="form-control" id="orgId" name="orgId" required
+                            placeholder="e.g. ACME or dept-code — organization identifier" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Short organization identifier used in the RFC ID (e.g. ACME or dept-code).">
                     </div>
                     <div class="col-md-3">
                         <label for="ticketType" class="form-label">Ticket Type</label>
@@ -43,76 +52,88 @@
                     </div>
                     <div class="col-md-3">
                         <label for="changeDate" class="form-label">Date (YYYYMMDD)</label>
-                        <input type="text" class="form-control" id="changeDate" name="changeDate" pattern="\d{8}" placeholder="YYYYMMDD" required data-bs-toggle="tooltip" data-bs-placement="top" title="Enter the date as YYYYMMDD (e.g. 20251019). This value is used in the RFC ID.">
+                        <input type="text" class="form-control" id="changeDate" name="changeDate" pattern="\d{8}"
+                            placeholder="YYYYMMDD" required data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Enter the date as YYYYMMDD (e.g. 20251019). This value is used in the RFC ID.">
                     </div>
                     <div class="col-md-3">
                         <label for="uniqueSuffix" class="form-label">Unique Suffix</label>
-                        <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required placeholder="e.g. 001 — unique short suffix" data-bs-toggle="tooltip" data-bs-placement="top" title="Unique short identifier used in the RFC ID (e.g. 001 or sequence). Avoid spaces; use alphanumerics or hyphens.">
+                        <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required
+                            placeholder="e.g. 001 — unique short suffix" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Unique short identifier used in the RFC ID (e.g. 001 or sequence). Avoid spaces; use alphanumerics or hyphens.">
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="generalSubject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="generalSubject" name="generalSubject" placeholder="Brief summary of the change" required data-bs-toggle="tooltip" data-bs-placement="top" title="One-line summary of the change; appears in the RFC title and iCal summary. Keep it short.">
+                    <input type="text" class="form-control" id="generalSubject" name="generalSubject"
+                        placeholder="Brief summary of the change" required data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="One-line summary of the change; appears in the RFC title and iCal summary. Keep it short.">
                 </div>
             </fieldset>
+
+
+
             <fieldset class="mb-4">
                 <legend>General Information</legend>
                 <div class="mb-3">
                     <label for="generalDesc" class="form-label">Description</label>
-                    <textarea
-                        class="form-control"
-                        id="generalDesc"
-                        name="generalDesc"
-                        rows="2"
+                    <textarea class="form-control" id="generalDesc" name="generalDesc" rows="2"
                         placeholder="Explain what is changing, why, and what systems are affected."
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
                         title="Explain what is changing, why, and what systems are affected."></textarea>
                 </div>
                 <script>
-                window.addEventListener('load', function () {
-                    var el = document.getElementByTagName('textarea');
-                    if (el && typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
-                        new bootstrap.Tooltip(el);
-                    }
-                });
+                    window.addEventListener('load', function () {
+                        var el = document.getElementByTagName('textarea');
+                        if (el && typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+                            new bootstrap.Tooltip(el);
+                        }
+                    });
                 </script>
                 <div class="mb-3">
                     <label for="relatedFactors">Related Factors</label><br>
                     <textarea class="form-control" id="relatedFactors" name="relatedFactors" rows="5"
                         placeholder="List any related changes, dependencies, constraints, approvals needed, timing considerations, impacted systems, or other factors that may affect or be affected by this change. For example: dependent on Change #123, requires Compliance approval, must occur during maintenance window, impacts database performance, or resource availability."
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
                         title="List any related changes, dependencies, constraints, approvals needed, timing considerations, impacted systems, or other factors that may affect or be affected by this change. For example: dependent on Change #123, requires Compliance approval, must occur during maintenance window, impacts database performance, or resource availability."></textarea>
                 </div>
-                
+
 
 
                 <div class="mb-3">
                     <label for="requester" class="form-label">Requester</label>
-                    <input type="text" class="form-control" id="requester" name="requester" placeholder="Person owning the business case for the change" required>
+                    <input type="text" class="form-control" id="requester" name="requester"
+                        placeholder="Person owning the business case for the change" required>
                 </div>
                 <div class="mb-3">
                     <label for="distribution" class="form-label">Distribution</label>
-                    <input type="text" class="form-control" id="distribution" name="distribution" placeholder="e.g. team, department, or recipients">
+                    <input type="text" class="form-control" id="distribution" name="distribution"
+                        placeholder="e.g. team, department, or recipients">
                 </div>
                 <div class="mb-3">
                     <label class="form-label d-block">Status</label>
                     <div class="btn-group" role="group" aria-label="Status">
-                        <input type="radio" class="btn-check" name="status" id="statusDraft" value="Draft" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="status" id="statusDraft" value="Draft"
+                            autocomplete="off" checked>
                         <label class="btn btn-outline-primary" for="statusDraft">Draft</label>
 
-                        <input type="radio" class="btn-check" name="status" id="statusSubmitted" value="Submitted" autocomplete="off">
+                        <input type="radio" class="btn-check" name="status" id="statusSubmitted" value="Submitted"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary" for="statusSubmitted">Submitted</label>
 
-                        <input type="radio" class="btn-check" name="status" id="statusApproved" value="Approved" autocomplete="off">
+                        <input type="radio" class="btn-check" name="status" id="statusApproved" value="Approved"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary" for="statusApproved">Approved</label>
 
-                        <input type="radio" class="btn-check" name="status" id="statusImplemented" value="Implemented" autocomplete="off">
+                        <input type="radio" class="btn-check" name="status" id="statusImplemented" value="Implemented"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary" for="statusImplemented">Implemented</label>
 
-                        <input type="radio" class="btn-check" name="status" id="statusClosed" value="Closed" autocomplete="off">
+                        <input type="radio" class="btn-check" name="status" id="statusClosed" value="Closed"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary" for="statusClosed">Closed</label>
                     </div>
                 </div>
@@ -122,67 +143,83 @@
             <fieldset class="mb-4">
                 <legend>Classification</legend>
                 <div class="mb-3">
-  <label class="form-label">Change management procedure</label>
-  <div class="btn-group-vertical w-100" role="group" aria-label="Change Procedure options">
-    
-    <input type="radio" class="btn-check" name="changeProcedure" id="changeNormal" autocomplete="off" value="normal">
-    <label class="btn btn-outline-primary text-start" for="changeNormal">
-      <strong>Normal</strong><br>
-      <small class="text-muted">Goes through full CAB approval process; used for most planned, non-routine changes.</small>
-    </label>
+                    <label class="form-label">Change management procedure</label>
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Change Procedure options">
 
-    <input type="radio" class="btn-check" name="changeProcedure" id="changeStandard" autocomplete="off" value="standard">
-    <label class="btn btn-outline-primary text-start" for="changeStandard">
-      <strong>Standard</strong><br>
-      <small class="text-muted">Pre-approved, low-risk, and repeatable change with a well-defined release and deployment process.</small>
-    </label>
+                        <input type="radio" class="btn-check" name="changeProcedure" id="changeNormal"
+                            autocomplete="off" value="normal">
+                        <label class="btn btn-outline-primary text-start" for="changeNormal">
+                            <strong>Normal</strong><br>
+                            <small class="text-muted">Goes through full CAB approval process; used for most planned,
+                                non-routine changes.</small>
+                        </label>
 
-    <input type="radio" class="btn-check" name="changeProcedure" id="changeEmergency" autocomplete="off" value="emergency">
-    <label class="btn btn-outline-primary text-start" for="changeEmergency">
-      <strong>Emergency</strong><br>
-      <small class="text-muted">Urgent change to fix a major incident or prevent serious disruption to service. </small>
-    </label>
-    <input type="radio" class="btn-check" name="changeProcedure" id="changeExternal" autocomplete="off" value="external">
-    <label class="btn btn-outline-primary text-start" for="changeExternal">
-        <strong>External</strong><br>
-        <small class="text-muted">Third-party managed — coordination and documentation required.</small>
-    </label>
-  </div>
-</div>
+                        <input type="radio" class="btn-check" name="changeProcedure" id="changeStandard"
+                            autocomplete="off" value="standard">
+                        <label class="btn btn-outline-primary text-start" for="changeStandard">
+                            <strong>Standard</strong><br>
+                            <small class="text-muted">Pre-approved, low-risk, and repeatable change with a well-defined
+                                release and deployment process.</small>
+                        </label>
 
-                
+                        <input type="radio" class="btn-check" name="changeProcedure" id="changeEmergency"
+                            autocomplete="off" value="emergency">
+                        <label class="btn btn-outline-primary text-start" for="changeEmergency">
+                            <strong>Emergency</strong><br>
+                            <small class="text-muted">Urgent change to fix a major incident or prevent serious
+                                disruption to service. </small>
+                        </label>
+                        <input type="radio" class="btn-check" name="changeProcedure" id="changeExternal"
+                            autocomplete="off" value="external">
+                        <label class="btn btn-outline-primary text-start" for="changeExternal">
+                            <strong>External</strong><br>
+                            <small class="text-muted">Third-party managed — coordination and documentation
+                                required.</small>
+                        </label>
+                    </div>
+                </div>
 
-                
+
+
+
 
                 <div class="mb-3">
-                <label class="form-label">Change Priority</label>
-                <div class="btn-group-vertical w-100" role="group" aria-label="Change Priority options">
+                    <label class="form-label">Change Priority</label>
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Change Priority options">
 
-                    <input type="radio" class="btn-check" name="changePriority" id="priorityExpedited" value="expedited" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="priorityExpedited">
-                    <strong>Expedited</strong><br>
-                    <small class="text-muted">Time-critical change required to meet a hard deadline or prevent disruption. Must be acted on immediately.</small>
-                    </label>
+                        <input type="radio" class="btn-check" name="changePriority" id="priorityExpedited"
+                            value="expedited" autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="priorityExpedited">
+                            <strong>Expedited</strong><br>
+                            <small class="text-muted">Time-critical change required to meet a hard deadline or prevent
+                                disruption. Must be acted on immediately.</small>
+                        </label>
 
-                    <input type="radio" class="btn-check" name="changePriority" id="priorityHigh" value="high" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="priorityHigh">
-                    <strong>High</strong><br>
-                    <small class="text-muted">Urgent change with near-term deadline or strong business need. Should be prioritized.</small>
-                    </label>
+                        <input type="radio" class="btn-check" name="changePriority" id="priorityHigh" value="high"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="priorityHigh">
+                            <strong>High</strong><br>
+                            <small class="text-muted">Urgent change with near-term deadline or strong business need.
+                                Should be prioritized.</small>
+                        </label>
 
-                    <input type="radio" class="btn-check" name="changePriority" id="priorityMedium" value="medium" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="priorityMedium">
-                    <strong>Medium</strong><br>
-                    <small class="text-muted">Planned change on the roadmap. Needs timely delivery but follows standard workflow.</small>
-                    </label>
+                        <input type="radio" class="btn-check" name="changePriority" id="priorityMedium" value="medium"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="priorityMedium">
+                            <strong>Medium</strong><br>
+                            <small class="text-muted">Planned change on the roadmap. Needs timely delivery but follows
+                                standard workflow.</small>
+                        </label>
 
-                    <input type="radio" class="btn-check" name="changePriority" id="priorityLow" value="low" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="priorityLow">
-                    <strong>Low</strong><br>
-                    <small class="text-muted">Optional change with no immediate deadline. Can be deferred or scheduled flexibly.</small>
-                    </label>
+                        <input type="radio" class="btn-check" name="changePriority" id="priorityLow" value="low"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="priorityLow">
+                            <strong>Low</strong><br>
+                            <small class="text-muted">Optional change with no immediate deadline. Can be deferred or
+                                scheduled flexibly.</small>
+                        </label>
 
-                </div>
+                    </div>
                 </div>
 
 
@@ -195,113 +232,131 @@
             <fieldset class="mb-4">
                 <legend>Risks</legend>
 
-                <!-- Bootstrap 5 CSS -->
                 <div class="row mb-3">
-                <div class="col-md-6">
-                <label class="form-label">Implementation Complexity</label>
-                <div class="btn-group-vertical w-100" role="group" aria-label="Implementation Complexity options">
+                    <div class="col-md-6">
+                        <label class="form-label">Implementation Complexity</label>
+                        <div class="btn-group-vertical w-100" role="group"
+                            aria-label="Implementation Complexity options">
 
-                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityLow" value="low" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="complexityLow">
-                    <strong>Low Complexity</strong><br>
-                    <small class="text-muted">Simple, well-isolated change. Minimal effort, easy to implement and test.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="changeComplexity" id="complexityLow" value="low"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="complexityLow">
+                                <strong>Low Complexity</strong><br>
+                                <small class="text-muted">Simple, well-isolated change. Minimal effort, easy to
+                                    implement and test.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityModerate" value="moderate" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="complexityModerate">
-                    <strong>Moderate Complexity</strong><br>
-                    <small class="text-muted">Involves multiple components or teams. Requires coordination and moderate effort.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="changeComplexity" id="complexityModerate"
+                                value="moderate" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="complexityModerate">
+                                <strong>Moderate Complexity</strong><br>
+                                <small class="text-muted">Involves multiple components or teams. Requires coordination
+                                    and moderate effort.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityHigh" value="high" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="complexityHigh">
-                    <strong>High Complexity</strong><br>
-                    <small class="text-muted">Broad or technically challenging. Requires significant design, testing, and planning.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="changeComplexity" id="complexityHigh"
+                                value="high" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="complexityHigh">
+                                <strong>High Complexity</strong><br>
+                                <small class="text-muted">Broad or technically challenging. Requires significant design,
+                                    testing, and planning.</small>
+                            </label>
 
-                </div>
-                </div>
-                
+                        </div>
+                    </div>
 
-                <!-- Bootstrap 5 CSS -->
+                    <div class="col-md-6">
+                        <label class="form-label">Impact Severity</label>
+                        <div class="btn-group-vertical w-100" role="group" aria-label="Impact Severity options">
 
-                <div class="col-md-6">
-                <label class="form-label">Impact Severity</label>
-                <div class="btn-group-vertical w-100" role="group" aria-label="Impact Severity options">
+                            <input type="radio" class="btn-check" name="impactSeverity" id="impactLow" value="low"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="impactLow">
+                                <strong>Low Impact</strong><br>
+                                <small class="text-muted">Minimal disruption. Failure is tolerable and easy to recover
+                                    from.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="impactSeverity" id="impactLow" value="low" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="impactLow">
-                    <strong>Low Impact</strong><br>
-                    <small class="text-muted">Minimal disruption. Failure is tolerable and easy to recover from.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="impactSeverity" id="impactModerate"
+                                value="moderate" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="impactModerate">
+                                <strong>Moderate Impact</strong><br>
+                                <small class="text-muted">Noticeable disruption to parts of the system or user
+                                    experience. Recoverable.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="impactSeverity" id="impactModerate" value="moderate" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="impactModerate">
-                    <strong>Moderate Impact</strong><br>
-                    <small class="text-muted">Noticeable disruption to parts of the system or user experience. Recoverable.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="impactSeverity" id="impactHigh" value="high"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="impactHigh">
+                                <strong>High Impact</strong><br>
+                                <small class="text-muted">Severe disruption or business-critical failure. </small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="impactSeverity" id="impactHigh" value="high" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="impactHigh">
-                    <strong>High Impact</strong><br>
-                    <small class="text-muted">Severe disruption or business-critical failure. </small>
-                    </label>
-
-                </div>
-                </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mb-3">
-                <div class="col-md-6">
-                <label class="form-label">Repeatability and confidence</label>
-                <div class="btn-group-vertical w-100" role="group" aria-label="Repeatability options">
-                    
-                    <input type="radio" class="btn-check" name="repeatability" id="repeatHigh" autocomplete="off" value="high">
-                    <label class="btn btn-outline-primary text-start" for="repeatHigh">
-                    <strong>High</strong><br>
-                    <small class="text-muted">Frequently done, well-documented, and consistently successful.</small>
-                    </label>
+                    <div class="col-md-6">
+                        <label class="form-label">Repeatability and confidence</label>
+                        <div class="btn-group-vertical w-100" role="group" aria-label="Repeatability options">
 
-                    <input type="radio" class="btn-check" name="repeatability" id="repeatMedium" autocomplete="off" value="medium">
-                    <label class="btn btn-outline-primary text-start" for="repeatMedium">
-                    <strong>Medium</strong><br>
-                    <small class="text-muted">Occasionally done; some experience, but process or environment may vary.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="repeatability" id="repeatHigh"
+                                autocomplete="off" value="high">
+                            <label class="btn btn-outline-primary text-start" for="repeatHigh">
+                                <strong>High</strong><br>
+                                <small class="text-muted">Frequently done, well-documented, and consistently
+                                    successful.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="repeatability" id="repeatLow" autocomplete="off" value="low">
-                    <label class="btn btn-outline-primary text-start" for="repeatLow">
-                    <strong>Low</strong><br>
-                    <small class="text-muted">Rare or first-time change; little or no precedent; high uncertainty.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="repeatability" id="repeatMedium"
+                                autocomplete="off" value="medium">
+                            <label class="btn btn-outline-primary text-start" for="repeatMedium">
+                                <strong>Medium</strong><br>
+                                <small class="text-muted">Occasionally done; some experience, but process or environment
+                                    may vary.</small>
+                            </label>
 
-                </div>
-                </div>
+                            <input type="radio" class="btn-check" name="repeatability" id="repeatLow" autocomplete="off"
+                                value="low">
+                            <label class="btn btn-outline-primary text-start" for="repeatLow">
+                                <strong>Low</strong><br>
+                                <small class="text-muted">Rare or first-time change; little or no precedent; high
+                                    uncertainty.</small>
+                            </label>
 
-                <!-- Bootstrap 5 CSS -->
+                        </div>
+                    </div>
 
-                <div class="col-md-6">
-                <label class="form-label">Rollback Capability</label>
-                <div class="btn-group-vertical w-100" role="group" aria-label="Rollback Capability options">
+                    <div class="col-md-6">
+                        <label class="form-label">Rollback Capability</label>
+                        <div class="btn-group-vertical w-100" role="group" aria-label="Rollback Capability options">
 
-                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackFull" value="full" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="rollbackFull">
-                    <strong>Full Rollback Possible</strong><br>
-                    <small class="text-muted">Change can be fully reverted with minimal effort and impact.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackFull"
+                                value="full" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="rollbackFull">
+                                <strong>Full Rollback Possible</strong><br>
+                                <small class="text-muted">Change can be fully reverted with minimal effort and
+                                    impact.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackPartial" value="partial" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="rollbackPartial">
-                    <strong>Partial Rollback Possible</strong><br>
-                    <small class="text-muted">Some parts can be undone; manual steps and some impact possible.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackPartial"
+                                value="partial" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="rollbackPartial">
+                                <strong>Partial Rollback Possible</strong><br>
+                                <small class="text-muted">Some parts can be undone; manual steps and some impact
+                                    possible.</small>
+                            </label>
 
-                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackNone" value="none" autocomplete="off">
-                    <label class="btn btn-outline-primary text-start" for="rollbackNone">
-                    <strong>No Rollback / Irreversible</strong><br>
-                    <small class="text-muted">Change cannot be easily undone; rollback is complex or risky.</small>
-                    </label>
+                            <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackNone"
+                                value="none" autocomplete="off">
+                            <label class="btn btn-outline-primary text-start" for="rollbackNone">
+                                <strong>No Rollback / Irreversible</strong><br>
+                                <small class="text-muted">Change cannot be easily undone; rollback is complex or
+                                    risky.</small>
+                            </label>
 
-                </div>
-                </div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -318,7 +373,8 @@
 - What is the likelihood and potential impact?
 - Which systems, users, or services could be affected?
 - Are there any dependencies or external risks?
-- Have similar changes been done before? How confident are you?" data-bs-toggle="tooltip" data-bs-placement="top"></textarea>
+- Have similar changes been done before? How confident are you?" data-bs-toggle="tooltip"
+                        data-bs-placement="top"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="riskMitigation" class="form-label">Mitigation</label>
@@ -358,25 +414,30 @@
                 <div class="mb-3">
                     <label class="form-label">Change Outcome</label>
                     <div class="btn-group-vertical w-100" role="group" aria-label="Change Outcome options">
-                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeSuccess" value="success" autocomplete="off">
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeSuccess" value="success"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary text-start" for="outcomeSuccess">
                             <strong>Successful</strong><br>
-                            <small class="text-muted">Change was implemented as planned in schedule with no major issues.</small>
+                            <small class="text-muted">Change was implemented as planned in schedule with no major
+                                issues.</small>
                         </label>
 
-                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomePartial" value="partial" autocomplete="off">
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomePartial" value="partial"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary text-start" for="outcomePartial">
                             <strong>Partially Successful</strong><br>
                             <small class="text-muted">Change completed with some issues or follow-up needed.</small>
                         </label>
 
-                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeFailed" value="failed" autocomplete="off">
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeFailed" value="failed"
+                            autocomplete="off">
                         <label class="btn btn-outline-primary text-start" for="outcomeFailed">
                             <strong>Failed / Rolled Back</strong><br>
                             <small class="text-muted">Change failed or had to be reverted.</small>
                         </label>
 
-                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeNotImplemented" value="not_implemented" autocomplete="off">
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeNotImplemented"
+                            value="not_implemented" autocomplete="off">
                         <label class="btn btn-outline-primary text-start" for="outcomeNotImplemented">
                             <strong>Not Implemented</strong><br>
                             <small class="text-muted">Change was not carried out.</small>
@@ -387,27 +448,29 @@
                 <!-- Implementation Summary -->
                 <div class="mb-3">
                     <label for="postSummary" class="form-label">Implementation Summary</label>
-                    <textarea class="form-control" id="postSummary" name="postSummary" rows="2" placeholder="What happened during the change? Any deviations from the plan?" title="What happened during the change? Any deviations from the plan?"></textarea>
+                    <textarea class="form-control" id="postSummary" name="postSummary" rows="2"
+                        placeholder="What happened during the change? Any deviations from the plan?"
+                        title="What happened during the change? Any deviations from the plan?"></textarea>
                 </div>
 
                 <!-- Issues or Incidents -->
                 <div class="mb-3">
                     <label for="postIssues" class="form-label">Issues or Incidents</label>
-                    <textarea class="form-control" id="postIssues" name="postIssues" rows="2" placeholder="Any problems, errors, or impacts observed during or after the change?" title="Any problems, errors, or impacts observed during or after the change?"></textarea>
+                    <textarea class="form-control" id="postIssues" name="postIssues" rows="2"
+                        placeholder="Any problems, errors, or impacts observed during or after the change?"
+                        title="Any problems, errors, or impacts observed during or after the change?"></textarea>
                 </div>
             </fieldset>
 
 
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-secondary ms-2" id="downloadIcal">Download iCal</button>
-           
+
         </form>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
-
-        
 
         window.addEventListener('load', function () {
             var el = document.getElementByTagName('textarea');
@@ -415,17 +478,17 @@
                 new bootstrap.Tooltip(el);
             }
         });
-         
-        function getRfcId() {
-                const orgId = document.getElementById('orgId').value.trim();
-                const ticketType = document.getElementById('ticketType').value.trim();
-                const changeDate = document.getElementById('changeDate').value.trim();
-                const uniqueSuffix = document.getElementById('uniqueSuffix').value.trim();
-                const parts = [orgId, ticketType, changeDate, uniqueSuffix].filter(Boolean);
-                return parts.join('-');
-            }
 
-        document.querySelector('form').addEventListener('submit', function(e) {
+        function getRfcId() {
+            const orgId = document.getElementById('orgId').value.trim();
+            const ticketType = document.getElementById('ticketType').value.trim();
+            const changeDate = document.getElementById('changeDate').value.trim();
+            const uniqueSuffix = document.getElementById('uniqueSuffix').value.trim();
+            const parts = [orgId, ticketType, changeDate, uniqueSuffix].filter(Boolean);
+            return parts.join('-');
+        }
+
+        document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const form = document.getElementById("form");
@@ -434,18 +497,18 @@
             // Set input values as default values
             inputs.forEach(input => {
                 if (input.tagName === "TEXTAREA") {
-                input.innerHTML = input.value;
+                    input.innerHTML = input.value;
                 } else if (input.tagName === "SELECT") {
-                // Set the selected option as default
-                Array.from(input.options).forEach(option => {
-                    if (option.selected) {
-                    option.setAttribute("selected", "selected");
-                    } else {
-                    option.removeAttribute("selected");
-                    }
-                });
+                    // Set the selected option as default
+                    Array.from(input.options).forEach(option => {
+                        if (option.selected) {
+                            option.setAttribute("selected", "selected");
+                        } else {
+                            option.removeAttribute("selected");
+                        }
+                    });
                 } else {
-                input.setAttribute("value", input.value);
+                    input.setAttribute("value", input.value);
                 }
             });
 
@@ -453,7 +516,7 @@
             const html = document.documentElement.outerHTML;
 
             // Create blob and download
-            const blob = new Blob([html], {type: "text/html"});
+            const blob = new Blob([html], { type: "text/html" });
             const url = URL.createObjectURL(blob);
 
             const a = document.createElement("a");
@@ -463,11 +526,11 @@
 
             URL.revokeObjectURL(url);
         });
-    
+
         function updateRfcIdTitle() {
             const rfcId = getRfcId();
 
-            
+
             if (rfcId) {
                 document.title = rfcId;
                 const h1 = document.querySelector('h1');
@@ -479,12 +542,12 @@
             }
         }
         ['orgId', 'ticketType', 'changeDate', 'uniqueSuffix'].forEach(id => {
-            document.addEventListener('input', function(e) {
+            document.addEventListener('input', function (e) {
                 if (e.target && e.target.id === id) updateRfcIdTitle();
             });
         });
 
-        document.getElementById('downloadIcal').addEventListener('click', function() {
+        document.getElementById('downloadIcal').addEventListener('click', function () {
             function pad(n) { return n < 10 ? '0' + n : String(n); }
             function toICalDateTime(dt) {
                 if (!dt) return '';
@@ -517,7 +580,7 @@
                 'END:VCALENDAR'
             ].filter(Boolean).join('\r\n');
 
-            const blob = new Blob([ical], {type: 'text/calendar'});
+            const blob = new Blob([ical], { type: 'text/calendar' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -529,4 +592,5 @@
         });
     </script>
 </body>
+
 </html>
