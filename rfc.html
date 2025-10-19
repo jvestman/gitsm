@@ -288,6 +288,53 @@
                 </div>
             </fieldset>
 
+            <fieldset class="mb-4">
+                <legend>Post Implementation Review</legend>
+
+                <!-- Change Outcome -->
+                <div class="mb-3">
+                    <label class="form-label">Change Outcome</label>
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Change Outcome options">
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeSuccess" value="success" autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="outcomeSuccess">
+                            <strong>Successful</strong><br>
+                            <small class="text-muted">Change was implemented as planned in schedule with no major issues.</small>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomePartial" value="partial" autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="outcomePartial">
+                            <strong>Partially Successful</strong><br>
+                            <small class="text-muted">Change completed with some issues or follow-up needed.</small>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeFailed" value="failed" autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="outcomeFailed">
+                            <strong>Failed / Rolled Back</strong><br>
+                            <small class="text-muted">Change failed or had to be reverted.</small>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="changeOutcome" id="outcomeNotImplemented" value="not_implemented" autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="outcomeNotImplemented">
+                            <strong>Not Implemented</strong><br>
+                            <small class="text-muted">Change was not carried out.</small>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Implementation Summary -->
+                <div class="mb-3">
+                    <label for="postSummary" class="form-label">Implementation Summary</label>
+                    <textarea class="form-control" id="postSummary" name="postSummary" rows="2" placeholder="What happened during the change? Any deviations from the plan?"></textarea>
+                </div>
+
+                <!-- Issues or Incidents -->
+                <div class="mb-3">
+                    <label for="postIssues" class="form-label">Issues or Incidents</label>
+                    <textarea class="form-control" id="postIssues" name="postIssues" rows="2" placeholder="Any problems, errors, or impacts observed during or after the change?"></textarea>
+                </div>
+            </fieldset>
+
+
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-secondary ms-2" id="downloadIcal">Download iCal</button>
            
