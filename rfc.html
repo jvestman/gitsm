@@ -143,6 +143,35 @@
             <!-- Risks Field Group -->
             <fieldset class="mb-4">
                 <legend>Risks</legend>
+
+                <!-- Bootstrap 5 CSS -->
+
+                <div class="mb-3">
+                <label class="form-label">Implementation Complexity</label>
+                <div class="btn-group-vertical w-100" role="group" aria-label="Implementation Complexity options">
+
+                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityLow" value="low" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="complexityLow">
+                    <strong>Low Complexity</strong><br>
+                    <small class="text-muted">Simple, well-isolated change. Minimal effort, easy to implement and test.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityModerate" value="moderate" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="complexityModerate">
+                    <strong>Moderate Complexity</strong><br>
+                    <small class="text-muted">Involves multiple components or teams. Requires coordination and moderate effort.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="changeComplexity" id="complexityHigh" value="high" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="complexityHigh">
+                    <strong>High Complexity</strong><br>
+                    <small class="text-muted">Broad or technically challenging. Requires significant design, testing, and planning.</small>
+                    </label>
+
+                </div>
+                </div>
+
+
                 <div class="mb-3">
                 <label class="form-label">Repeatability and confidence</label>
                 <div class="btn-group-vertical w-100" role="group" aria-label="Repeatability options">
