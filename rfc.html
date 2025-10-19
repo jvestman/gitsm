@@ -180,9 +180,6 @@
                 </div>
 
 
-
-
-
                 <div class="mb-3">
                     <label class="form-label">Change Priority</label>
                     <div class="btn-group-vertical w-100" role="group" aria-label="Change Priority options">
@@ -540,23 +537,34 @@
 
         function updateRfcIdTitle() {
             const rfcId = getRfcId();
+            const subject = (document.getElementById('generalSubject')?.value || '').trim();
 
+            const baseTitle = rfcId || "Request for Change";
+            const fullTitle = subject ? `${baseTitle} - ${subject}` : baseTitle;
+            document.title = fullTitle;
 
-            if (rfcId) {
-                document.title = rfcId;
-                const h1 = document.querySelector('h1');
-                if (h1) h1.textContent = rfcId;
+            const h1 = document.querySelector('h1');
+            if (h1) {
+            if (rfcId && subject) {
+                h1.textContent = `${rfcId} - ${subject}`;
+            } else if (rfcId) {
+                h1.textContent = rfcId;
+            } else if (subject) {
+                h1.textContent = `Request for Change - ${subject}`;
             } else {
-                document.title = "Request for Change";
-                const h1 = document.querySelector('h1');
-                if (h1) h1.textContent = "Request for Change";
+                h1.textContent = "Request for Change";
+            }
             }
         }
-        ['orgId', 'ticketType', 'changeDate', 'uniqueSuffix'].forEach(id => {
+
+        ['orgId', 'ticketType', 'changeDate', 'uniqueSuffix', 'generalSubject'].forEach(id => {
             document.addEventListener('input', function (e) {
-                if (e.target && e.target.id === id) updateRfcIdTitle();
+            if (e.target && e.target.id === id) updateRfcIdTitle();
             });
         });
+
+        // Initialize title on load
+        updateRfcIdTitle();
 
         document.getElementById('downloadIcal').addEventListener('click', function () {
             function pad(n) { return n < 10 ? '0' + n : String(n); }
