@@ -496,10 +496,10 @@
 
             // Set input values as default values
             inputs.forEach(input => {
-                if (input.tagName === "TEXTAREA") {
+                const tag = input.tagName;
+                if (tag === "TEXTAREA") {
                     input.innerHTML = input.value;
-                } else if (input.tagName === "SELECT") {
-                    // Set the selected option as default
+                } else if (tag === "SELECT") {
                     Array.from(input.options).forEach(option => {
                         if (option.selected) {
                             option.setAttribute("selected", "selected");
@@ -507,8 +507,19 @@
                             option.removeAttribute("selected");
                         }
                     });
-                } else {
-                    input.setAttribute("value", input.value);
+                } else if (tag === "INPUT") {
+                    const type = (input.type || "").toLowerCase();
+                    if (type === "radio" || type === "checkbox") {
+                        if (input.checked) {
+                            input.setAttribute("checked", "checked");
+                        } else {
+                            input.removeAttribute("checked");
+                        }
+                        // keep value attribute consistent as well
+                        input.setAttribute("value", input.value);
+                    } else {
+                        input.setAttribute("value", input.value);
+                    }
                 }
             });
 
