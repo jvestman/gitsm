@@ -484,6 +484,116 @@
 
 
             <button type="submit" class="btn btn-primary">Save</button>
+            <a id="shareUrl" class="btn btn-outline-secondary ms-2" target="_blank" rel="noopener noreferrer">Share link</a>
+
+            <script>
+            (function () {
+                const form = document.getElementById('form');
+                const share = document.getElementById('shareUrl');
+
+                function serializeFormToHash() {
+                    const params = new URLSearchParams();
+                    const elements = Array.from(form.elements).filter(el => el.name);
+                    elements.forEach(el => {
+                        const name = el.name;
+                        const tag = el.tagName;
+                        const type = (el.type || "").toLowerCase();
+
+                        if (type === 'radio') {
+                            if (el.checked) params.append(name, el.value);
+                        } else if (type === 'checkbox') {
+                            if (el.checked) params.append(name, el.value);
+                        } else if (tag === 'SELECT') {
+                            if (el.multiple) {
+                                Array.from(el.options).forEach(opt => { if (opt.selected) params.append(name, opt.value); });
+                            } else {
+                                params.append(name, el.value || '');
+                            }
+                        } else { // input / textarea
+                            params.append(name, el.value || '');
+                        }
+                    });
+                    return params.toString();
+                }
+
+                function updateShareHref() {
+                    const base = location.href.split('#')[0];
+                    const hash = serializeFormToHash();
+                    share.href = base + (hash ? ('#' + hash) : '');
+                    share.title = share.href;
+                }
+
+                function applyHashToForm(rawHash) {
+                    if (!rawHash) return;
+                    const params = new URLSearchParams(rawHash);
+                    const map = {};
+                    for (const [k, v] of params.entries()) {
+                        if (!map[k]) map[k] = [];
+                        map[k].push(v);
+                    }
+
+                    // Apply values
+                    Array.from(form.elements).forEach(el => {
+                        if (!el.name) return;
+                        const name = el.name;
+                        const vals = map[name];
+                        const tag = el.tagName;
+                        const type = (el.type || "").toLowerCase();
+
+                        if (type === 'radio') {
+                            el.checked = !!(vals && vals.indexOf(el.value) !== -1);
+                        } else if (type === 'checkbox') {
+                            el.checked = !!(vals && vals.indexOf(el.value) !== -1);
+                        } else if (tag === 'SELECT') {
+                            if (el.multiple) {
+                                Array.from(el.options).forEach(opt => {
+                                    opt.selected = !!(vals && vals.indexOf(opt.value) !== -1);
+                                });
+                            } else {
+                                if (vals && vals.length) el.value = vals[0];
+                            }
+                        } else {
+                            if (vals && vals.length) el.value = vals[0];
+                        }
+
+                        // notify listeners
+                        const ev = new Event('input', { bubbles: true });
+                        el.dispatchEvent(ev);
+                        const ch = new Event('change', { bubbles: true });
+                        el.dispatchEvent(ch);
+                    });
+
+                    // best-effort update if function available
+                    if (typeof updateRfcIdTitle === 'function') {
+                        try { updateRfcIdTitle(); } catch (e) { /* ignore */ }
+                    }
+                }
+
+                // update share url on changes (debounced)
+                let t;
+                function scheduleUpdate() {
+                    clearTimeout(t);
+                    t = setTimeout(updateShareHref, 150);
+                }
+                form.addEventListener('input', scheduleUpdate);
+                form.addEventListener('change', scheduleUpdate);
+
+                // initialize: if there's a fragment, populate form
+                function initFromHash() {
+                    const raw = location.hash ? location.hash.slice(1) : '';
+                    if (raw) applyHashToForm(raw);
+                    updateShareHref();
+                }
+
+                document.addEventListener('DOMContentLoaded', initFromHash);
+                // in case script executes after DOMContentLoaded
+                if (document.readyState === 'interactive' || document.readyState === 'complete') initFromHash();
+
+                // clicking the share link opens the current page with serialized fragment (it's an anchor already)
+                // ensure the link updates once on load
+                updateShareHref();
+            })();
+            </script>
             <button type="button" class="btn btn-secondary ms-2" id="downloadIcal">Download iCal</button>
 
         </form>
