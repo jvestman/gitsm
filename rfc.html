@@ -545,9 +545,9 @@
 
             const h1 = document.querySelector('h1');
             if (h1) {
-            if (rfcId && subject) {
+            if (rfcId != "CHG" && subject) {
                 h1.textContent = `${rfcId} - ${subject}`;
-            } else if (rfcId) {
+            } else if (rfcId != "CHG") {
                 h1.textContent = rfcId;
             } else if (subject) {
                 h1.textContent = `Request for Change - ${subject}`;
