@@ -10,8 +10,22 @@
     <div class="container mt-5">
         
         <h1 class="mb-4">Request for Change</h1>
-        <p>This form helps you log IT changes quickly and clearly. Just fill in the details so everyone involved knows what’s happening and why — making the whole process smoother and less risky. Learn more about <a href="https://en.wikipedia.org/wiki/Change_management_(ITSM)" target="_blank" rel="noopener noreferrer">IT change management</a>.</p>
-        <p><small><em>Note:</em> All the information you enter is stored only in your browser. To keep a record or share it, make sure to save the form locally or email the saved file to the next person involved. The data isn’t sent anywhere automatically.</small></p>
+        <div class="alert alert-info alert-dismissible fade show rfc-panel" role="alert">
+            <h4 class="alert-heading">About this form</h4>
+            <p>This form helps you log IT changes quickly and clearly. Just fill in the details so everyone involved knows what’s happening and why — making the whole process smoother and less risky. Learn more about <a href="https://en.wikipedia.org/wiki/Change_management_(ITSM)" target="_blank" rel="noopener noreferrer">IT change management</a>.</p>
+            <p><small><em>Note:</em> All the information you enter is stored only in your browser. To keep a record or share it, make sure to save the form locally or email the saved file to the next person involved. The data isn’t sent anywhere automatically.</small></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <script>
+            // Fallback to ensure the panel is removed from the DOM when closed.
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.btn-close');
+                if (!btn) return;
+                const panel = btn.closest('.rfc-panel');
+                if (panel) panel.remove();
+            });
+        </script>
 
 
         <form id="form">
