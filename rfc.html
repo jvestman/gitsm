@@ -35,7 +35,7 @@
                 <div class="row mb-3" id="rfcIdGroup">
                     <div class="col-md-3">
                         <label for="orgId" class="form-label">Organization ID</label>
-                        <input type="text" class="form-control" id="orgId" name="orgId" required placeholder="e.g. ACME or dept-code — organization identifier">
+                        <input type="text" class="form-control" id="orgId" name="orgId" required placeholder="e.g. ACME or dept-code — organization identifier" data-bs-toggle="tooltip" data-bs-placement="top" title="Short organization identifier used in the RFC ID (e.g. ACME or dept-code).">
                     </div>
                     <div class="col-md-3">
                         <label for="ticketType" class="form-label">Ticket Type</label>
@@ -43,17 +43,17 @@
                     </div>
                     <div class="col-md-3">
                         <label for="changeDate" class="form-label">Date (YYYYMMDD)</label>
-                        <input type="text" class="form-control" id="changeDate" name="changeDate" pattern="\d{8}" placeholder="YYYYMMDD" required>
+                        <input type="text" class="form-control" id="changeDate" name="changeDate" pattern="\d{8}" placeholder="YYYYMMDD" required data-bs-toggle="tooltip" data-bs-placement="top" title="Enter the date as YYYYMMDD (e.g. 20251019). This value is used in the RFC ID.">
                     </div>
                     <div class="col-md-3">
                         <label for="uniqueSuffix" class="form-label">Unique Suffix</label>
-                        <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required>
+                        <input type="text" class="form-control" id="uniqueSuffix" name="uniqueSuffix" required placeholder="e.g. 001 — unique short suffix" data-bs-toggle="tooltip" data-bs-placement="top" title="Unique short identifier used in the RFC ID (e.g. 001 or sequence). Avoid spaces; use alphanumerics or hyphens.">
                     </div>
                 </div>
                 
                 <div class="mb-3">
                     <label for="generalSubject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="generalSubject" name="generalSubject" placeholder="Brief summary of the change" required>
+                    <input type="text" class="form-control" id="generalSubject" name="generalSubject" placeholder="Brief summary of the change" required data-bs-toggle="tooltip" data-bs-placement="top" title="One-line summary of the change; appears in the RFC title and iCal summary. Keep it short.">
                 </div>
                 <div class="mb-3">
                     <label for="generalDesc" class="form-label">Description</label>
