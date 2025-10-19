@@ -57,13 +57,33 @@
                 </div>
                 <div class="mb-3">
                     <label for="generalDesc" class="form-label">Description</label>
-                    <textarea class="form-control" id="generalDesc" name="generalDesc" rows="2" placeholder="Explain what is changing, why, and what systems are affected."></textarea>
+                    <textarea
+                        class="form-control"
+                        id="generalDesc"
+                        name="generalDesc"
+                        rows="2"
+                        placeholder="Explain what is changing, why, and what systems are affected."
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Explain what is changing, why, and what systems are affected."></textarea>
                 </div>
-                <div class="mb-3
+                <script>
+                window.addEventListener('load', function () {
+                    var el = document.getElementByTagName('textarea');
+                    if (el && typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+                        new bootstrap.Tooltip(el);
+                    }
+                });
+                </script>
+                <div class="mb-3">
                     <label for="relatedFactors">Related Factors</label><br>
-                    <textarea class="form-control" id="relatedFactors" name="relatedFactors" rows="5"  
-                        placeholder="List any related changes, dependencies, constraints, approvals needed, timing considerations, impacted systems, or other factors that may affect or be affected by this change. For example: dependent on Change #123, requires Compliance approval, must occur during maintenance window, impacts database performance, or resource availability."></textarea>
+                    <textarea class="form-control" id="relatedFactors" name="relatedFactors" rows="5"
+                        placeholder="List any related changes, dependencies, constraints, approvals needed, timing considerations, impacted systems, or other factors that may affect or be affected by this change. For example: dependent on Change #123, requires Compliance approval, must occur during maintenance window, impacts database performance, or resource availability."
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="List any related changes, dependencies, constraints, approvals needed, timing considerations, impacted systems, or other factors that may affect or be affected by this change. For example: dependent on Change #123, requires Compliance approval, must occur during maintenance window, impacts database performance, or resource availability."></textarea>
                 </div>
+                
 
 
                 <div class="mb-3">
@@ -288,7 +308,12 @@
 - What is the likelihood and potential impact?
 - Which systems, users, or services could be affected?
 - Are there any dependencies or external risks?
-- Have similar changes been done before? How confident are you?"></textarea>
+- Have similar changes been done before? How confident are you?" title="Consider the following:
+- What could go wrong during or after the change?
+- What is the likelihood and potential impact?
+- Which systems, users, or services could be affected?
+- Are there any dependencies or external risks?
+- Have similar changes been done before? How confident are you?" data-bs-toggle="tooltip" data-bs-placement="top"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="riskMitigation" class="form-label">Mitigation</label>
@@ -297,7 +322,12 @@
 - What safeguards or precautions will be in place?
 - Is there a rollback or recovery plan if something goes wrong?
 - Will you test or validate the change beforehand?
-- Who will monitor the change and respond to issues?"></textarea>
+- Who will monitor the change and respond to issues?" title="Consider the following:
+- How will you reduce the likelihood or impact of failure?
+- What safeguards or precautions will be in place?
+- Is there a rollback or recovery plan if something goes wrong?
+- Will you test or validate the change beforehand?
+- Who will monitor the change and respond to issues?" data-bs-toggle="tooltip" data-bs-placement="top"></textarea>
                 </div>
             </fieldset>
 
@@ -352,13 +382,13 @@
                 <!-- Implementation Summary -->
                 <div class="mb-3">
                     <label for="postSummary" class="form-label">Implementation Summary</label>
-                    <textarea class="form-control" id="postSummary" name="postSummary" rows="2" placeholder="What happened during the change? Any deviations from the plan?"></textarea>
+                    <textarea class="form-control" id="postSummary" name="postSummary" rows="2" placeholder="What happened during the change? Any deviations from the plan?" title="What happened during the change? Any deviations from the plan?"></textarea>
                 </div>
 
                 <!-- Issues or Incidents -->
                 <div class="mb-3">
                     <label for="postIssues" class="form-label">Issues or Incidents</label>
-                    <textarea class="form-control" id="postIssues" name="postIssues" rows="2" placeholder="Any problems, errors, or impacts observed during or after the change?"></textarea>
+                    <textarea class="form-control" id="postIssues" name="postIssues" rows="2" placeholder="Any problems, errors, or impacts observed during or after the change?" title="Any problems, errors, or impacts observed during or after the change?"></textarea>
                 </div>
             </fieldset>
 
@@ -371,6 +401,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
 
+        
+
+        window.addEventListener('load', function () {
+            var el = document.getElementByTagName('textarea');
+            if (el && typeof bootstrap !== 'undefined' && bootstrap.Tooltip) {
+                new bootstrap.Tooltip(el);
+            }
+        });
+         
         function getRfcId() {
                 const orgId = document.getElementById('orgId').value.trim();
                 const ticketType = document.getElementById('ticketType').value.trim();
