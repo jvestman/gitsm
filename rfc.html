@@ -114,27 +114,49 @@
                         placeholder="e.g. team, department, or recipients">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label d-block">Status</label>
-                    <div class="btn-group" role="group" aria-label="Status">
+                    <label class="form-label">Approval status</label>
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Status">
                         <input type="radio" class="btn-check" name="status" id="statusDraft" value="Draft"
                             autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="statusDraft">Draft</label>
+                        <label class="btn btn-outline-primary text-start" for="statusDraft">
+                            <strong>Draft</strong><br>
+                            <small class="text-muted">Initial authoring state — details may be incomplete and the change has not been submitted for review.</small>
+                        </label>
 
                         <input type="radio" class="btn-check" name="status" id="statusSubmitted" value="Submitted"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary" for="statusSubmitted">Submitted</label>
+                        <label class="btn btn-outline-primary text-start" for="statusSubmitted">
+                            <strong>Submitted</strong><br>
+                            <small class="text-muted">Sent for review — awaiting feedback, scheduling, dependency and risk analysis .</small>
+                        </label>
+
+                        <input type="radio" class="btn-check" name="status" id="statusReadyApproval" value="Ready for Approval"
+                            autocomplete="off">
+                        <label class="btn btn-outline-primary text-start" for="statusReadyApproval">
+                            <strong>Ready for Approval</strong><br>
+                            <small class="text-muted">All required information completed and validated — now awaiting sign-off.</small>
+                        </label>
 
                         <input type="radio" class="btn-check" name="status" id="statusApproved" value="Approved"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary" for="statusApproved">Approved</label>
+                        <label class="btn btn-outline-primary text-start" for="statusApproved">
+                            <strong>Approved</strong><br>
+                            <small class="text-muted">Authorized by the approver(s) or CAB — ready for implementation.</small>
+                        </label>
 
                         <input type="radio" class="btn-check" name="status" id="statusImplemented" value="Implemented"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary" for="statusImplemented">Implemented</label>
+                        <label class="btn btn-outline-primary text-start" for="statusImplemented">
+                            <strong>Implemented</strong><br>
+                            <small class="text-muted">Change has been executed — monitoring and post-implementation review may be in progress.</small>
+                        </label>
 
                         <input type="radio" class="btn-check" name="status" id="statusClosed" value="Closed"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary" for="statusClosed">Closed</label>
+                        <label class="btn btn-outline-primary text-start" for="statusClosed">
+                            <strong>Closed</strong><br>
+                            <small class="text-muted">Change completed and verified — records updated and the RFC is formally closed.</small>
+                        </label>
                     </div>
                 </div>
             </fieldset>
