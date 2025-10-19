@@ -83,6 +83,9 @@
                         <option value="emergency">Emergency</option>
                     </select>
                 </div>
+
+                
+
                 <div class="mb-3">
                     <label for="classificationPriority" class="form-label">Priority</label>
                     <input type="number" class="form-control" id="classificationPriority" name="classificationPriority" min="1" max="5">
@@ -92,6 +95,30 @@
             <!-- Risks Field Group -->
             <fieldset class="mb-4">
                 <legend>Risks</legend>
+                <div class="mb-3">
+                <label class="form-label">Repeatability and confidence</label>
+                <div class="btn-group-vertical w-100" role="group" aria-label="Repeatability options">
+                    
+                    <input type="radio" class="btn-check" name="repeatability" id="repeatHigh" autocomplete="off" value="high">
+                    <label class="btn btn-outline-primary text-start" for="repeatHigh">
+                    <strong>High</strong><br>
+                    <small class="text-muted">Frequently done, well-documented, and consistently successful.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="repeatability" id="repeatMedium" autocomplete="off" value="medium">
+                    <label class="btn btn-outline-primary text-start" for="repeatMedium">
+                    <strong>Medium</strong><br>
+                    <small class="text-muted">Occasionally done; some experience, but process or environment may vary.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="repeatability" id="repeatLow" autocomplete="off" value="low">
+                    <label class="btn btn-outline-primary text-start" for="repeatLow">
+                    <strong>Low</strong><br>
+                    <small class="text-muted">Rare or first-time change; little or no precedent; high uncertainty.</small>
+                    </label>
+
+                </div>
+                </div>
                 <div class="mb-3">
                     <label for="riskAssessment" class="form-label">Assessment</label>
                     <textarea class="form-control" id="riskAssessment" name="riskAssessment" rows="2" placeholder="Consider the following:
