@@ -167,6 +167,36 @@
 
                 </div>
                 </div>
+
+                <!-- Bootstrap 5 CSS -->
+
+                <div class="mb-3">
+                <label class="form-label">Rollback Capability</label>
+                <div class="btn-group-vertical w-100" role="group" aria-label="Rollback Capability options">
+
+                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackFull" value="full" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="rollbackFull">
+                    <strong>Full Rollback Possible</strong><br>
+                    <small class="text-muted">Change can be fully reverted with minimal effort and impact.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackPartial" value="partial" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="rollbackPartial">
+                    <strong>Partial Rollback Possible</strong><br>
+                    <small class="text-muted">Some parts can be undone; manual steps and some impact possible.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="rollbackCapability" id="rollbackNone" value="none" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="rollbackNone">
+                    <strong>No Rollback / Irreversible</strong><br>
+                    <small class="text-muted">Change cannot be easily undone; rollback is complex or risky.</small>
+                    </label>
+
+                </div>
+                </div>
+
+
+
                 <div class="mb-3">
                     <label for="riskAssessment" class="form-label">Assessment</label>
                     <textarea class="form-control" id="riskAssessment" name="riskAssessment" rows="2" placeholder="Consider the following:
