@@ -35,8 +35,8 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="generalName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="generalName" name="generalName">
+                    <label for="generalSubject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="generalSubject" name="generalSubject" placeholder="Brief summary of the change" required>
                 </div>
                 <div class="mb-3">
                     <label for="generalDesc" class="form-label">Description</label>
@@ -207,7 +207,7 @@
             }
 
             const rfcId = getRfcId();
-            const name = document.getElementById('generalName').value || '';
+            const name = document.getElementById('generalSubject').value || '';
             const desc = document.getElementById('generalDesc').value || '';
             const dtStart = toICalDateTime(document.getElementById('scheduleStart').value);
             const dtEnd = toICalDateTime(document.getElementById('scheduleEnd').value);
