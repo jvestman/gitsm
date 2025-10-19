@@ -101,10 +101,43 @@
 
                 
 
+                
+
                 <div class="mb-3">
-                    <label for="classificationPriority" class="form-label">Priority</label>
-                    <input type="number" class="form-control" id="classificationPriority" name="classificationPriority" min="1" max="5">
+                <label class="form-label">Change Priority</label>
+                <div class="btn-group-vertical w-100" role="group" aria-label="Change Priority options">
+
+                    <input type="radio" class="btn-check" name="changePriority" id="priorityExpedited" value="expedited" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="priorityExpedited">
+                    <strong>Expedited</strong><br>
+                    <small class="text-muted">Time-critical change required to meet a hard deadline or prevent disruption. Must be acted on immediately.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="changePriority" id="priorityHigh" value="high" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="priorityHigh">
+                    <strong>High</strong><br>
+                    <small class="text-muted">Urgent change with near-term deadline or strong business need. Should be prioritized.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="changePriority" id="priorityMedium" value="medium" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="priorityMedium">
+                    <strong>Medium</strong><br>
+                    <small class="text-muted">Planned change on the roadmap. Needs timely delivery but follows standard workflow.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="changePriority" id="priorityLow" value="low" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="priorityLow">
+                    <strong>Low</strong><br>
+                    <small class="text-muted">Optional change with no immediate deadline. Can be deferred or scheduled flexibly.</small>
+                    </label>
+
                 </div>
+                </div>
+
+
+
+
+
             </fieldset>
 
             <!-- Risks Field Group -->
