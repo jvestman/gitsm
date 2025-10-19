@@ -171,6 +171,33 @@
                 </div>
                 </div>
 
+                <!-- Bootstrap 5 CSS -->
+
+                <div class="mb-3">
+                <label class="form-label">Impact Severity</label>
+                <div class="btn-group-vertical w-100" role="group" aria-label="Impact Severity options">
+
+                    <input type="radio" class="btn-check" name="impactSeverity" id="impactLow" value="low" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="impactLow">
+                    <strong>Low Impact</strong><br>
+                    <small class="text-muted">Minimal disruption. Failure is tolerable and easy to recover from.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="impactSeverity" id="impactModerate" value="moderate" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="impactModerate">
+                    <strong>Moderate Impact</strong><br>
+                    <small class="text-muted">Noticeable disruption to parts of the system or user experience. Recoverable.</small>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="impactSeverity" id="impactHigh" value="high" autocomplete="off">
+                    <label class="btn btn-outline-primary text-start" for="impactHigh">
+                    <strong>High Impact</strong><br>
+                    <small class="text-muted">Severe disruption or business-critical failure. </small>
+                    </label>
+
+                </div>
+                </div>
+
 
                 <div class="mb-3">
                 <label class="form-label">Repeatability and confidence</label>
