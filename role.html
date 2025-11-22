@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Role Definition and Access Control Specification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="container my-5">
+      <h1 class="mb-4">Role Definition and Access Control Specification</h1>
+      
+<form id="role_definition_form" action="#" method="post" class="p-4 bg-white rounded shadow-sm">
+  
+  <fieldset class="mb-4 border p-3 rounded">
+     
+        
+    <div class="card mb-3">
+      
+      <div class="card-body">
+        <p>This form defines a single role within the organization, describing both the responsibilities it entails and the IT/information assets and permissions associated with it. While individuals are granted access separately, the role definition clearly documents which systems, databases, workspaces, or services are linked to the role. A person may hold multiple roles, each covering different responsibilities, and the scope of a role can range from a team-specific responsibility to a broader, organization-wide accountability. Defining roles in this structured way ensures that access is consistent, auditable, and aligned with policies. For individuals, this clarity means they know exactly which resources are linked to each of their roles, helping them perform their work efficiently while maintaining security and compliance.</p>
+
+<p><strong>Important:</strong> Access rights for individual persons must be requested via a separate Access Rights Request Form, which will reference the roles defined here.</p>
+
+<p>This separation ensures proper governance, auditability, and lifecycle management of access rights.</p>
+
+<p><strong>Example of Role to Access Mapping:</strong></p>
+
+<table class="table" border="1" cellpadding="4" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Information Assets</th>
+      <th>Permissions</th>
+      <th>Assigned Person</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data Processing Specialist</td>
+      <td>Customer Database X, Data Warehouse Y</td>
+      <td>Read, Write</td>
+      <td>Alice Smith</td>
+    </tr>
+    <tr>
+      <td>HR Business Partner</td>
+      <td>HR System, Payroll System</td>
+      <td>Read, Approve</td>
+      <td>Bob Johnson</td>
+    </tr>
+    <tr>
+      <td>Program Manager Product Y</td>
+      <td>Project Workspace Y, Reporting Dashboard Y</td>
+      <td>Read, Write</td>
+      <td>Carol Lee</td>
+    </tr>
+  </tbody>
+</table>
+<p></p>
+<p>In practice, <strong>users do not get access directly</strong>; they are granted access <strong>via their assigned roles</strong>. This ensures consistent enforcement of access policies.</p>
+      </div>
+    </div>
+    
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Role Information</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="role_name" class="form-label">Role Name *</label>
+  <input type="text" class="form-control" id="role_name" name="role_name"
+         placeholder="Example: Data Processing Specialist for Product X" required>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="role_description" class="form-label">Role Description *</label>
+  <textarea class="form-control" id="role_description" name="role_description" rows="2"
+            placeholder="Describe responsibilities, scope, and objectives of this role." required></textarea>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="role_scope" class="form-label">Role Scope *</label>
+  <select class="form-select" id="role_scope" name="role_scope" required>
+    
+      <option value="global">Global</option>
+    
+      <option value="unit">Unit or Organization</option>
+    
+      <option value="project">Project</option>
+    
+      <option value="system">System / Application / Workspace</option>
+    
+  </select>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="role_status" class="form-label">Role Lifecycle Status *</label>
+  <select class="form-select" id="role_status" name="role_status" required>
+    
+      <option value="active">Active</option>
+    
+      <option value="proposed">Proposed</option>
+    
+      <option value="deprecated">Deprecated</option>
+    
+      <option value="retired">Retired</option>
+    
+  </select>
+</div>
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Role Governance & Relations</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="reports_to_role" class="form-label">Reports To (Role ID or Name)</label>
+  <input type="text" class="form-control" id="reports_to_role" name="reports_to_role"
+         placeholder="Optional — parent role in hierarchy" >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="supervises_roles" class="form-label">Supervises Roles</label>
+  <input type="text" class="form-control" id="supervises_roles" name="supervises_roles"
+         placeholder="Optional — comma-separated list" >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="conflicts_with_roles" class="form-label">Segregation of Duties Conflicts</label>
+  <input type="text" class="form-control" id="conflicts_with_roles" name="conflicts_with_roles"
+         placeholder="Optional — roles that cannot be combined with this one" >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="role_relation_conditions" class="form-label">Relationship Conditions</label>
+  <textarea class="form-control" id="role_relation_conditions" name="role_relation_conditions" rows="2"
+            placeholder="Optional — e.g., conditional delegation or temporary oversight" ></textarea>
+</div>
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Information Asset & Access Rule #1</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="asset1_id" class="form-label">Information Asset *</label>
+  <input type="text" class="form-control" id="asset1_id" name="asset1_id"
+         placeholder="Asset identifier or name" required>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset1_type" class="form-label">Asset Type *</label>
+  <select class="form-select" id="asset1_type" name="asset1_type" required>
+    
+      <option value="system">System / Application</option>
+    
+      <option value="dataset">Information Repository / Dataset</option>
+    
+      <option value="workspace">Workspace / Collaboration Space</option>
+    
+      <option value="document">Document / File</option>
+    
+      <option value="infrastructure">Infrastructure / Service</option>
+    
+  </select>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset1_permissions" class="form-label">Permissions Granted to This Role *</label>
+  <textarea class="form-control" id="asset1_permissions" name="asset1_permissions" rows="2"
+            placeholder="Example:
+  - read
+  - write
+  - administer
+  - approve changes
+  - export data
+" required></textarea>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset1_constraints_conditions" class="form-label">Access Constraints & Conditions</label>
+  <textarea class="form-control" id="asset1_constraints_conditions" name="asset1_constraints_conditions" rows="2"
+            placeholder="Examples:
+  - allowed only for business hours
+  - must use MFA for admin actions
+  - temporary access during project
+  - depends on user’s home organization
+" ></textarea>
+</div>
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Information Asset & Access Rule #2</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="asset2_id" class="form-label">Information Asset</label>
+  <input type="text" class="form-control" id="asset2_id" name="asset2_id"
+         placeholder="Asset identifier or name" >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset2_type" class="form-label">Asset Type</label>
+  <select class="form-select" id="asset2_type" name="asset2_type" >
+    
+      <option value="system">System / Application</option>
+    
+      <option value="dataset">Information Repository / Dataset</option>
+    
+      <option value="workspace">Workspace / Collaboration Space</option>
+    
+      <option value="document">Document / File</option>
+    
+      <option value="infrastructure">Infrastructure / Service</option>
+    
+  </select>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset2_permissions" class="form-label">Permissions Granted to This Role</label>
+  <textarea class="form-control" id="asset2_permissions" name="asset2_permissions" rows="2"
+            placeholder="Example:
+  - read
+  - write
+  - administer
+" ></textarea>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset2_constraints_conditions" class="form-label">Access Constraints & Conditions</label>
+  <textarea class="form-control" id="asset2_constraints_conditions" name="asset2_constraints_conditions" rows="2"
+            placeholder="Examples:
+  - allowed only for business hours
+  - sensitivity-specific restrictions
+" ></textarea>
+</div>
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Information Asset & Access Rule #3</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="asset3_id" class="form-label">Information Asset</label>
+  <input type="text" class="form-control" id="asset3_id" name="asset3_id"
+         placeholder="Asset identifier or name" >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset3_type" class="form-label">Asset Type</label>
+  <select class="form-select" id="asset3_type" name="asset3_type" >
+    
+      <option value="system">System / Application</option>
+    
+      <option value="dataset">Information Repository / Dataset</option>
+    
+      <option value="workspace">Workspace / Collaboration Space</option>
+    
+      <option value="document">Document / File</option>
+    
+      <option value="infrastructure">Infrastructure / Service</option>
+    
+  </select>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset3_permissions" class="form-label">Permissions Granted to This Role</label>
+  <textarea class="form-control" id="asset3_permissions" name="asset3_permissions" rows="2"
+            placeholder="Define permissions for this asset" ></textarea>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="asset3_constraints_conditions" class="form-label">Access Constraints & Conditions</label>
+  <textarea class="form-control" id="asset3_constraints_conditions" name="asset3_constraints_conditions" rows="2"
+            placeholder="Optional conditions or restrictions" ></textarea>
+</div>
+      
+    
+  </fieldset>
+  
+  <fieldset class="mb-4 border p-3 rounded">
+    
+      <legend class="fw-bold">Audit & Lifecycle Information</legend>
+    
+
+    
+    
+      
+        
+<div class="mb-3">
+  <label for="created_by" class="form-label">Created By *</label>
+  <input type="text" class="form-control" id="created_by" name="created_by"
+         placeholder="Requestor or role owner" required>
+</div>
+      
+        
+<div class="mb-3">
+  <label for="valid_from" class="form-label">Role Valid From</label>
+  <input type="date" class="form-control" id="valid_from" name="valid_from"
+         >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="valid_to" class="form-label">Role Valid To</label>
+  <input type="date" class="form-control" id="valid_to" name="valid_to"
+         >
+</div>
+      
+        
+<div class="mb-3">
+  <label for="lifecycle_reason" class="form-label">Reason for Lifecycle Change</label>
+  <textarea class="form-control" id="lifecycle_reason" name="lifecycle_reason" rows="2"
+            placeholder="Reason for creation/update/deprecation" ></textarea>
+</div>
+      
+    
+  </fieldset>
+  
+
+  <div class="d-flex gap-2 flex-wrap">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-outline-secondary" onclick="downloadFormCopy()">Download Copy</button>
+    <button type="button" class="btn btn-outline-success" onclick="downloadFormAsEML()">Download as EML</button>
+    <button type="button" class="btn btn-outline-info" onclick="shareFormURL()">Share via URL</button>
+  </div>
+</form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script>
+function prepareFormValues() {
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') {
+      if (el.checked) el.setAttribute('checked', 'checked');
+      else el.removeAttribute('checked');
+    } else if (el.tagName.toLowerCase() === 'select') {
+      Array.from(el.options).forEach(opt => {
+        if (opt.value === el.value) opt.setAttribute('selected', 'selected');
+        else opt.removeAttribute('selected');
+      });
+    } else if (el.tagName.toLowerCase() === 'textarea') {
+      el.textContent = el.value;
+    } else {
+      el.setAttribute('value', el.value);
+    }
+  });
+  return "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+}
+
+function getFormValues() {
+  const data = {};
+  document.querySelectorAll('input, textarea, select').forEach(el => {
+    if (!el.name) return;
+    if (el.type === 'checkbox') {
+      if (!data[el.name]) data[el.name] = [];
+      if (el.checked) data[el.name].push(el.value);
+    } else if (el.type === 'radio') {
+      if (el.checked) data[el.name] = el.value;
+    } else {
+      data[el.name] = el.value;
+    }
+  });
+  return data;
+}
+
+function setFormValues(data) {
+  for (const [name, value] of Object.entries(data)) {
+    const elements = document.querySelectorAll(`[name="${name}"]`);
+    elements.forEach(el => {
+      if (el.type === 'checkbox') {
+        el.checked = Array.isArray(value) ? value.includes(el.value) : value === el.value;
+      } else if (el.type === 'radio') {
+        el.checked = el.value === value;
+      } else {
+        el.value = value;
+      }
+    });
+  }
+}
+
+function interpolate(template, values) {
+  if (!template) return '';
+  return template.replace(/\$\{(\w+)\}/g, (_, key) => values[key] || '');
+}
+
+function downloadFormCopy() {
+  const html = prepareFormValues();
+  const timestamp = new Date().toISOString().replace(/[:T]/g, '-').split('.')[0];
+  const filename = `filled_form_${timestamp}.html`;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function downloadFormAsEML() {
+  const html = prepareFormValues();
+  const values = getFormValues();
+  const boundary = "----=_Boundary_" + Math.random().toString(36).slice(2);
+  const timestamp = new Date().toISOString().replace(/[:T]/g, '-').split('.')[0];
+  const filename = `filled_form_${timestamp}.eml`;
+
+  const from = interpolate(emlConfig.from || "no-reply@example.com", values);
+  const to = interpolate(emlConfig.to || "recipient@example.com", values);
+  const subject = interpolate(emlConfig.subject || "Completed Form Submission", values);
+
+  const emlParts = [
+    `From: ${from}`,
+    `To: ${to}`,
+    `Subject: ${subject}`,
+    "MIME-Version: 1.0",
+    `Content-Type: multipart/alternative; boundary=\"${boundary}\"`,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/plain; charset=utf-8",
+    "",
+    "Your email client does not support HTML. The completed form is below.",
+    "",
+    `--${boundary}`,
+    "Content-Type: text/html; charset=utf-8",
+    "Content-Transfer-Encoding: base64",
+    "",
+    btoa(unescape(encodeURIComponent(html))),
+    "",
+    `--${boundary}--`
+  ];
+
+  const emlContent = emlParts.join("\r\n");
+  const blob = new Blob([emlContent], { type: 'message/rfc822' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// 🆕 Serialize form into URL fragment and navigate
+function shareFormURL() {
+  const data = getFormValues();
+  const encoded = encodeURIComponent(JSON.stringify(data));
+  const newURL = `${window.location.pathname}#data=${encoded}`;
+  history.replaceState(null, '', newURL);
+  alert('✅ URL updated! You can now copy and share this link.');
+}
+
+// 🆕 On load, populate form from URL fragment
+window.addEventListener('DOMContentLoaded', () => {
+  const match = window.location.hash.match(/^#data=(.+)$/);
+  if (match) {
+    try {
+      const decoded = JSON.parse(decodeURIComponent(match[1]));
+      setFormValues(decoded);
+    } catch (e) {
+      console.warn('Failed to parse form data from URL fragment:', e);
+    }
+  }
+});
+
+// Injected from YAML
+const emlConfig = {"from": "no-reply@example.com", "subject": "New or Updated Role Definition Submitted", "to": "iam-team@example.com"};
+</script>
+
+  </body>
+</html>
